@@ -9,7 +9,14 @@ import reviewRoutes from './routes/reviewRoutes.js';
 
 dotenv.config();
 const app = express();
-app.use(cors());
+
+app.use(cors({
+  origin: [
+    "https://hyperlocal-service-app.onrender.com"
+  ],
+  credentials: true,
+}));
+
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
